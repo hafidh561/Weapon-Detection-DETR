@@ -16,7 +16,7 @@ $ git clone https://github.com/hafidh561/Weapon-Detection-DETR.git
 # Python version 3.6
 $ git clone https://github.com/nodefluxio/vortex.git
 $ cd vortex/ && git checkout drop-enforce
-$ pip install ./src/runtime[onnxruntime] && cd../
+$ pip install ./src/runtime[onnxruntime] && cd ../
 $ pip install -r requirements.txt
 $ python download_model.py
 ```
@@ -44,7 +44,7 @@ optional arguments:
                         Input your minimal value to detect object
 
 # Example input
-$ python app.py -s test_images/weapon0.jpg
+$ python app.py -s test_images/weapon0.jpg -c 0.5
 ```
 
 ### Usage Docker
@@ -86,7 +86,7 @@ optional arguments:
                         Input your minimal value to detect object
 
 # Example arguments input
-$ docker run --rm -e DISPLAY=192.168.0.2:0 hafidh561/weapon-detection-detr:1.0 -s test_images/weapon0.jpg
+$ docker run --rm -e DISPLAY=192.168.0.2:0 hafidh561/weapon-detection-detr:1.0 -s test_images/weapon0.jpg -c 0.5
 
 # For Operating System Windows
 $ docker run --rm -e DISPLAY=<your local ip address>:0 hafidh561/weapon-detection-detr:1.0
