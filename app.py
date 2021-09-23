@@ -7,6 +7,7 @@ from vortex.runtime.helper import InferenceHelper
 
 
 source_img = "./test_images/weapon0.jpg"
+confidence_threshold = 0.5
 size = (480, 640)
 
 # Set Argument Parse
@@ -17,8 +18,16 @@ parser.add_argument(
     default=source_img,
     help="Input your image source to detect the object",
 )
+parser.add_argument(
+    "-c",
+    "--confidence",
+    type=float,
+    default=confidence_threshold,
+    help="Input your minimal value to detect object",
+)
 value_parser = parser.parse_args()
 source_img = value_parser.source_img
+confidence_threshold = value_parser.confidence
 
 # Check Source Img
 mimestart = mimetypes.guess_type(value_parser.source_img)[0]
@@ -42,7 +51,7 @@ kwargs = dict(
 rt = InferenceHelper.create_runtime_model(**kwargs)
 
 kwargs = dict(
-    score_threshold=0.5,
+    score_threshold=confidence_threshold,
     visualize=True,
 )
 result = rt(img, **kwargs)

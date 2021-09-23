@@ -2,8 +2,7 @@
 
 ## Description
 
-Weapon detection using DETR model with GUI application based.
-You can use this code for another object detection, but you must have a class names, config, weights and height weight model.
+Weapon detection using DETR model with GUI application based. <br/>
 
 ## Installation
 
@@ -35,12 +34,14 @@ $ docker build -t hafidh561/weapon-detection-detr:1.0 .
 
 ```bash
 $ python app.py -h
-usage: app.py [-h] [-s SOURCE_IMG]
+usage: app.py [-h] [-s SOURCE_IMG] [-c CONFIDENCE]
 
 optional arguments:
   -h, --help            show this help message and exit
   -s SOURCE_IMG, --source-img SOURCE_IMG
                         Input your image source to detect the object
+  -c CONFIDENCE, --confidence CONFIDENCE
+                        Input your minimal value to detect object
 
 # Example input
 $ python app.py -s test_images/weapon0.jpg
@@ -75,12 +76,14 @@ $ xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
 ```bash
 $ docker run --rm -e hafidh561/weapon-detection-detr:1.0 -h
-usage: app.py [-h] [-s SOURCE_IMG]
+usage: app.py [-h] [-s SOURCE_IMG] [-c CONFIDENCE]
 
 optional arguments:
   -h, --help            show this help message and exit
   -s SOURCE_IMG, --source-img SOURCE_IMG
                         Input your image source to detect the object
+  -c CONFIDENCE, --confidence CONFIDENCE
+                        Input your minimal value to detect object
 
 # Example arguments input
 $ docker run --rm -e DISPLAY=192.168.0.2:0 hafidh561/weapon-detection-detr:1.0 -s test_images/weapon0.jpg
